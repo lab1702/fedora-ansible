@@ -14,9 +14,6 @@
         - gcc
         - gcc-c++
         - make
-        - docker
-        - docker-buildx
-        - docker-compose
         - git
         - gh
         - cmake
