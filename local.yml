@@ -1,0 +1,98 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  # - name: Show facts available on the system
+  #   debug:
+  #     var: ansible_facts
+
+  - name: install packages
+    ansible.builtin.package:
+      name:
+        - gcc
+        - gcc-c++
+        - make
+        - docker
+        - docker-buildx
+        - docker-compose
+        - git
+        - gh
+        - cmake
+        - ccache
+        - meson
+        - curl
+        - wget
+        - jq
+        - gnuplot
+        - ttyplot
+        - graphviz
+        - R
+        - R-devel
+        - openblas-devel
+        - pandoc
+        - libxml2-devel
+        - libcurl-devel
+        - openssl-devel
+        - libX11-devel
+        - mesa-libGLU-devel
+        - ftgl-devel
+        - fontconfig-devel
+        - cairo-devel
+        - gsl-devel
+        - udunits2-devel
+        - gdal-devel
+        - mpfr-devel
+        - gmp-devel
+        - harfbuzz-devel
+        - fribidi-devel
+        - v8-devel
+        - libunwind-devel
+        - libarchive-devel
+        - libsodium-devel
+        - libsecret-devel
+        - libgit2-devel
+        - ImageMagick-c++-devel
+        - poppler-cpp-devel
+        - ffmpeg-devel
+        - unixODBC-devel
+        - freetds
+        - python3
+        - python3-virtualenv
+        - golang
+        - nodejs
+        - npm
+        - gnucobol
+        - hexyl
+        - bvi
+        - vim
+        - sqlite
+        - sqlite-tools
+        - tmux
+        - multitail
+        - ispell
+        - ripgrep
+        - fd-find
+        - fzf
+        - bat
+        - eza
+        - tree
+        - gdu
+        - neofetch
+        - cpufetch
+        - figlet
+        - dos2unix
+        - htop
+        - btop
+        - nvtop
+        - inxi
+        - mtr
+      state: present
+      update_cache: true
+
+  - name: install duckdb cli
+    ansible.builtin.unarchive:
+      src: https://github.com/duckdb/duckdb/releases/latest/download/duckdb_cli-linux-amd64.zip
+      dest: /usr/local/bin
+      remote_src: yes
